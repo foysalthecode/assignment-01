@@ -21,6 +21,8 @@ const getLength = (value: StringOrArr) => {
   }
 };
 
+//------------------------------------------
+
 class Person {
   name: string;
   age: number;
@@ -32,3 +34,16 @@ class Person {
     return `'Name: ${this.name}, Age: ${this.age}'`;
   }
 }
+//------------------------------------------
+
+type ArrayOfItems = {
+  title: string;
+  rating: number;
+}[];
+
+const filterByRating = (value: ArrayOfItems) => {
+  const mappedValue = value.filter((value) => value.rating > 4);
+  return mappedValue;
+};
+
+//---------------------------------

@@ -11,3 +11,12 @@ const formatValue = (value: Alphaneumeric) => {
   }
 };
 
+type StringOrArr = string | number[];
+
+const getLength = (value: StringOrArr) => {
+  if (typeof value === "string") {
+    return value.length;
+  } else {
+    return value.length;
+  }
+};

@@ -1,3 +1,5 @@
+//problem 1 -------------------------
+
 type Alphaneumeric = string | number | boolean;
 const formatValue = (value: Alphaneumeric) => {
   if (typeof value === "string") {
@@ -11,6 +13,8 @@ const formatValue = (value: Alphaneumeric) => {
   }
 };
 
+//problem 2 ----------------------------
+
 type StringOrArr = string | number[];
 
 const getLength = (value: StringOrArr) => {
@@ -21,7 +25,7 @@ const getLength = (value: StringOrArr) => {
   }
 };
 
-//------------------------------------------
+// problem 3------------------------------------------
 
 class Person {
   name: string;
@@ -34,7 +38,7 @@ class Person {
     return `'Name: ${this.name}, Age: ${this.age}'`;
   }
 }
-//------------------------------------------
+//problem 4  ------------------------------------------
 
 type ArrayOfItems = {
   title: string;
@@ -46,4 +50,37 @@ const filterByRating = (value: ArrayOfItems) => {
   return mappedValue;
 };
 
-//---------------------------------
+//problem 5 ---------------------------------
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+}[];
+const filterActiveUsers = (user: User) => {
+  const result = user.filter((user) => user.isActive);
+  return result;
+};
+
+const users = [
+  { id: 1, name: "Rakib", email: "rakib@example.com", isActive: true },
+  { id: 2, name: "Asha", email: "asha@example.com", isActive: false },
+  { id: 3, name: "Rumi", email: "rumi@example.com", isActive: true },
+];
+
+//problem 6 -------------------------------------------
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
+
+const printBookDetails = (value: Book) => {
+  const isAvailable = value.isAvailable;
+  const available = isAvailable ? "yes" : "no";
+  return console.log(
+    `Title: ${value.title}, Author: ${value.author}, Published: ${value.publishedYear}, Available: ${available}`
+  );
+};
+

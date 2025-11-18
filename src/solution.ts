@@ -1,5 +1,3 @@
-//problem 1 -------------------------
-
 type Alphaneumeric = string | number | boolean;
 const formatValue = (value: Alphaneumeric) => {
   if (typeof value === "string") {
@@ -13,8 +11,6 @@ const formatValue = (value: Alphaneumeric) => {
   }
 };
 
-//problem 2 ----------------------------
-
 type StringOrArr = string | number[];
 
 const getLength = (value: StringOrArr) => {
@@ -24,8 +20,6 @@ const getLength = (value: StringOrArr) => {
     return value.length;
   }
 };
-
-// problem 3------------------------------------------
 
 class Person {
   name: string;
@@ -38,7 +32,6 @@ class Person {
     return `'Name: ${this.name}, Age: ${this.age}'`;
   }
 }
-//problem 4  ------------------------------------------
 
 type ArrayOfItems = {
   title: string;
@@ -50,7 +43,6 @@ const filterByRating = (value: ArrayOfItems) => {
   return mappedValue;
 };
 
-//problem 5 ---------------------------------
 type User = {
   id: number;
   name: string;
@@ -62,13 +54,6 @@ const filterActiveUsers = (user: User) => {
   return result;
 };
 
-const users = [
-  { id: 1, name: "Rakib", email: "rakib@example.com", isActive: true },
-  { id: 2, name: "Asha", email: "asha@example.com", isActive: false },
-  { id: 3, name: "Rumi", email: "rumi@example.com", isActive: true },
-];
-
-//problem 6 -------------------------------------------
 interface Book {
   title: string;
   author: string;
@@ -84,3 +69,54 @@ const printBookDetails = (value: Book) => {
   );
 };
 
+
+const getUniqueValues = (arr1: any, arr2: any) => {
+  const unique: number[] = [];
+  for (let i = 0; i <= arr1.length; i++) {
+    let exist: boolean = false;
+    for (let j = 0; j <= unique.length; j++) {
+      if (arr1[i] === unique[j]) {
+        exist = true;
+        break;
+      }
+    }
+    if (!exist) {
+      unique[unique.length] = arr1[i];
+    }
+  }
+
+  for (let i = 0; i <= arr2.length; i++) {
+    let exist = false;
+    for (let j = 0; j <= unique.length; j++) {
+      if (arr2[i] === unique[j]) {
+        exist = true;
+        break;
+      }
+    }
+    if (!exist) {
+      unique[unique.length] = arr2[i];
+    }
+  }
+  return unique;
+};
+
+type productType = {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}[];
+const calculateTotalPrice = (value: productType) => {
+  const totalPrice = value.reduce((acc, product) => {
+    if (product.discount) {
+      const discount = product.discount / 100;
+      const discountedPrice = product.price * product.quantity * discount;
+      const totalPrice = product.price * product.quantity - discountedPrice;
+      return acc + totalPrice;
+    } else {
+      return acc + product.price * product.quantity;
+    }
+  }, 0);
+
+  return totalPrice;
+};
